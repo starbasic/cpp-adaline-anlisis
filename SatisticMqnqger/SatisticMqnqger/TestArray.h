@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ private:
 	int select_size;
 	int ** array;
 public:
-	TestArray() = delete;
+	//TestArray() = delete;
 	TestArray(int t, int k, int n);
 	TestArray(const TestArray &);
 	TestArray(const TestArray &&);

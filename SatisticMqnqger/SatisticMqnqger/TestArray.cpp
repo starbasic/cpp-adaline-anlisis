@@ -57,15 +57,38 @@ TestArray::TestArray(const TestArray && other)
 	}
 }
 
+void TestArray::random_generate()
+{
+    srand(time(NULL));
+    for (int i = 0; i < test_time; i++)
+    {
+        for (int j = 0; j < range_size; j++)
+        {
+            array[i][j] = 0;
+        }
+        int next;
+        for (int total_gener = 0; total_gener < select_size;) {
+            next = rand() % range_size;
+            if (!array[i][next])
+            {
+                array[i][next] = 1;
+                total_gener++;
+            }
+        }
+        
+    }
+}
+ 
 void TestArray::test_print()
 {
-	for (int i = 0; i < test_time; i++)
-	{
-		for (int j = 0; j < range_size; j++)
-		{
-			if(array[i][j]) cout<<j+1;
-		}
-		cout<<endl;
-	}
-
+    for (int i = 0; i < test_time; i++)
+    {
+        for (int j = 0; j < range_size; j++)
+        {
+            if(array[i][j]) cout<<j+1<<"  ";
+        }
+        cout<<endl;
+    }
+ 
 }
+ 

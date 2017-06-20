@@ -67,15 +67,15 @@ void TestArray::random_generate()
             array[i][j] = 0;
         }
         int next;
-        for (int total_gener = 0; total_gener < select_size;) {
-            next = rand() % range_size;
-            if (!array[i][next])
-            {
-                array[i][next] = 1;
-                total_gener++;
-            }
+        for (int total_gener = 0; total_gener < select_size;) 
+		{
+            next = rand() % (range_size - total_gener);
+			for(int j = 0; j<next;j++)
+				if (array[i][j])next++;
+			while(array[i][next])next++;
+			array[i][next]= 1;
+			total_gener++;
         }
-        
     }
 }
  

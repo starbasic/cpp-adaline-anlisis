@@ -1,7 +1,4 @@
-#include<iostream>
-
-using namespace std;
-
+#include "TestArray.h"
 void main()
 {
 	cout<<"Hello, statistics!";

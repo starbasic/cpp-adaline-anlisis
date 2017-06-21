@@ -91,4 +91,77 @@ void TestArray::test_print()
     }
  
 }
+
+
+learn_sample TestArray::getSample(int time, int n, int size) const
+	{
+		
+		// 0 based names of elements!!! n  to n+1
+		learn_sample result(size);
+		if(time>test_time-(size+1) || time<0)
+			cout<<"wrong learning example at time="<<time<<endl;
+		else
+		{
+			for (int i = 0; i < size; i++)
+			{
+				result[i] = array[time+i][n];
+			}
+			result.setResult(array[time+size][n]);
+		}
+		return result;
+	}
+
  
+
+	learn_sample::learn_sample(int size)
+	{
+		this->size = size;
+		bites = new int[size+1];
+		for (int i = 0; i < size+1; i++)
+		{
+			this->bites[i] = 0;
+		}
+	}
+	learn_sample::learn_sample(const learn_sample& other)
+	{
+		this->size = other.size;
+		bites = new int[size+1];
+		for (int i = 0; i < size+1; i++)
+		{
+			this->bites[i] = other.bites[i];
+		}
+	}
+
+	learn_sample::learn_sample(const learn_sample&& other)
+	{
+		this->size = other.size;
+		bites = new int[size+1];
+		for (int i = 0; i < size+1; i++)
+		{
+			this->bites[i] = other.bites[i];
+		}
+	}
+	learn_sample::~learn_sample()
+	{
+		this->size = 0;
+		delete [] this->bites ;
+	}
+
+	int& learn_sample::operator[](int i) 
+	{
+		if(i>=0 && i< size)
+		return this->bites[i];
+		
+	}
+
+	int learn_sample::getResult() const
+	{
+		return this->bites[size];
+	}
+
+	void learn_sample::setResult(int n)
+	{
+		this->bites[size] = n;
+	}
+
+	

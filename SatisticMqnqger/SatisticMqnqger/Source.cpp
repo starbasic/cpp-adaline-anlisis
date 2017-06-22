@@ -1,4 +1,5 @@
 #include "TestArray.h"
+#include "Adaline.h"
 void main()
 {
 	cout<<"Hello, statistics!"<<endl;
@@ -18,7 +19,8 @@ void main()
 	cout<<endl;
 
 	cout<<ls.getResult()<<endl;
-
-
+	Adaline ada(12);
+	cout<<endl;
+	ada.print_weights();
 
 }

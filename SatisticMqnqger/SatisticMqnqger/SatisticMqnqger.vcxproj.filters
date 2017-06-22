@@ -21,9 +21,15 @@
     <ClCompile Include="TestArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Adaline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adaline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

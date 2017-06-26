@@ -116,30 +116,33 @@ learn_sample TestArray::getSample(int time, int n, int size) const
 	learn_sample::learn_sample(int size)
 	{
 		this->size = size;
-		bites = new int[size+1];
-		for (int i = 0; i < size+1; i++)
+		bites = new int[size];
+		for (int i = 0; i < size; i++)
 		{
 			this->bites[i] = 0;
 		}
+		this->result=0.0;
 	}
 	learn_sample::learn_sample(const learn_sample& other)
 	{
 		this->size = other.size;
-		bites = new int[size+1];
-		for (int i = 0; i < size+1; i++)
+		bites = new int[size];
+		for (int i = 0; i < size; i++)
 		{
 			this->bites[i] = other.bites[i];
 		}
+		this->result= other.result;
 	}
 
 	learn_sample::learn_sample(const learn_sample&& other)
 	{
 		this->size = other.size;
-		bites = new int[size+1];
-		for (int i = 0; i < size+1; i++)
+		bites = new int[size];
+		for (int i = 0; i < size; i++)
 		{
 			this->bites[i] = other.bites[i];
 		}
+		this->result= other.result;
 	}
 	learn_sample::~learn_sample()
 	{
@@ -154,14 +157,14 @@ learn_sample TestArray::getSample(int time, int n, int size) const
 		
 	}
 
-	int learn_sample::getResult() const
+	double learn_sample::getResult() const
 	{
-		return this->bites[size];
+		return this->result;
 	}
 
-	void learn_sample::setResult(int n)
+	void learn_sample::setResult(double p)
 	{
-		this->bites[size] = n;
+		this->result = p;
 	}
 
 	

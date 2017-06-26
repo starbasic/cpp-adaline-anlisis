@@ -11,6 +11,7 @@ class learn_sample
 private:
 	int size;
 	int *bites;
+	double result;
 public:
 	learn_sample(){}
 	learn_sample(int size);
@@ -18,9 +19,9 @@ public:
 	learn_sample(const learn_sample&& other);
 	~learn_sample();
 	int& operator[](int i);
-	int getResult() const;
-	void setResult(int);
-	
+	double getResult() const;
+	int getSize() const{ return this->size;}
+	void setResult(double);
 };
 
 class TestArray

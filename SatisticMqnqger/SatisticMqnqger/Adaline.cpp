@@ -50,7 +50,10 @@ void Adaline::learn_widrow(learn_sample ls)
 {
 	if(this->size!=ls.getSize())
 		{
-			cout<< "Bad example size";
+			cout<< "Bad example size"<<endl;
+			cout<<"Adaline Size: "<<this->size<<endl;
+			cout<<"Sample size: "<<ls.getSize()<<endl;
+
 			return;
 	}
 	else
@@ -58,7 +61,10 @@ void Adaline::learn_widrow(learn_sample ls)
 		//obtain prediatable result 
 		y = 0.0;
 		for (int i = 0; i < this->size; i++)
+		{
 			y+=this->weight[i]*ls[i];
+			cout<<ls[i]<<endl;
+		}
 		//calculate new weights
 		for (int i = 0; i < this->size; i++)
 		{

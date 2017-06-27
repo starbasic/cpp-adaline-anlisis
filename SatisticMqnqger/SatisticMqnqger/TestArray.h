@@ -17,6 +17,7 @@ public:
 	learn_sample(int size);
 	learn_sample(const learn_sample& other);
 	learn_sample(const learn_sample&& other);
+	learn_sample operator=(learn_sample other);
 	~learn_sample();
 	int& operator[](int i);
 	double getResult() const;

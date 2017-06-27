@@ -144,6 +144,20 @@ learn_sample TestArray::getSample(int time, int n, int size) const
 		}
 		this->result= other.result;
 	}
+
+	learn_sample learn_sample::operator=(learn_sample other)
+	{
+		this->size = other.size;
+		bites = new int[size];
+		for (int i = 0; i < size; i++)
+		{
+			this->bites[i] = other.bites[i];
+		}
+		this->result= other.result;
+		return *this;
+	}
+
+
 	learn_sample::~learn_sample()
 	{
 		this->size = 0;
@@ -154,6 +168,7 @@ learn_sample TestArray::getSample(int time, int n, int size) const
 	{
 		if(i>=0 && i< size)
 		return this->bites[i];
+		
 		
 	}
 

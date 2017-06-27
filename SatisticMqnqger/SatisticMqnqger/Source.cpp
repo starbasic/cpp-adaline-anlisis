@@ -7,20 +7,18 @@ void main()
 	data.random_generate();
 	data.test_print();
 
-// test of sample extraction
-	learn_sample ls = data.getSample(0, 5, 5);
-
-	cout<<"Test example 0, 5, 5 "<<endl;
-
-	for (int i = 0; i < 7; i++)
-	{
-		cout<<ls[i]<<"  ";
-	}
-	cout<<endl;
-
-	cout<<ls.getResult()<<endl;
-	Adaline ada(12);
-	cout<<endl;
+	learn_sample ls;
+	Adaline ada(10);
+	cout<<endl<<"weights before learning"<<endl;
 	ada.print_weights();
+
+	for (int i = 0; i < 10; i++)
+	{
+		ls = data.getSample(8, i, 10);
+		cout<<"After "<<i<<" sample:"<<endl;
+		ada.learn_widrow(ls);
+		ada.print_weights();
+
+	}
 
 }

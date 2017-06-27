@@ -8,7 +8,7 @@ Adaline::Adaline(int n)
 		{
 			weight[i] = 1.0/size;
 		}
-		y = 0;
+		y = 0.0;
 		learn_speed = SPEED;
 	}
 Adaline::Adaline(const Adaline& other)
@@ -41,8 +41,9 @@ void Adaline::print_weights()
 	cout<<"Weights: "<<endl;
 	for (int i = 0; i < this->size; i++)
 		{
-			cout<<this->weight[i]<<endl;
+			cout<<this->weight[i]<<'\t';
 		}
+	cout<<endl;
 }
 
 void Adaline::learn_widrow(learn_sample ls)
@@ -54,7 +55,15 @@ void Adaline::learn_widrow(learn_sample ls)
 	}
 	else
 	{
-
+		//obtain prediatable result 
+		y = 0.0;
+		for (int i = 0; i < this->size; i++)
+			y+=this->weight[i]*ls[i];
+		//calculate new weights
+		for (int i = 0; i < this->size; i++)
+		{
+			this->weight[i] -= learn_speed*ls[i]*(y-ls.getResult());
+		}
 
 	}
 }

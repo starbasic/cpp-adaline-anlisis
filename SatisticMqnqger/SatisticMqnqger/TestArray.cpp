@@ -96,7 +96,8 @@ void TestArray::test_print()
 learn_sample TestArray::getSample(int time, int n, int size) const
 	{
 		
-		// 0 based names of elements!!! n  to n+1
+		// 0 based names of elements!!! k  to k+1
+		// n - number of row in test
 		learn_sample result(size);
 		if(time>test_time-(size+1) || time<0)
 			cout<<"wrong learning example at time="<<time<<endl;

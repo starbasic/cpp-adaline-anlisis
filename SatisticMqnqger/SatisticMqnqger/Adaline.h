@@ -16,6 +16,7 @@ public:
 	Adaline(const Adaline&& other);
 	void print_weights();
 	void learn_widrow(learn_sample);
+	void learn_statistic(TestArray);
 
 };
 

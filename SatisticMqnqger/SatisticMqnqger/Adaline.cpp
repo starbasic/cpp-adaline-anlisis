@@ -73,3 +73,45 @@ void Adaline::learn_widrow(learn_sample ls)
 
 	}
 }
+
+
+void Adaline::learn_statistic(TestArray datas)
+{
+	int * sum_positive = new int[this->size];
+	for (int i = 0; i < this->size; i++)sum_positive[i]=0;
+	{
+
+	}
+	//int * sum_negative = new int[this->size];
+	int total = datas.get_test_time()-(this->size+1);
+	int n= datas.get_range_size();
+	int k = datas.get_select_size();
+	int count = 0;
+	for (int i = 0; i < total; i++)
+	{
+		for (int j= 0; j <n; j++)
+		{
+		learn_sample ls = datas.getSample(i, j, this->size);
+			if(ls.getResult())
+			{
+				for (int ij = 0; ij < this->size; ij++)
+				{
+					if(ls[ij])
+					{
+						sum_positive[ij]++;
+						count++;
+					}
+				}
+			}
+		}
+	}
+	if(count)
+	{
+		for (int i = 0; i < this->size; i++)
+		{
+			this->weight[i] = (double)sum_positive[i]/count;
+		}
+	}
+
+	delete [] sum_positive;
+}

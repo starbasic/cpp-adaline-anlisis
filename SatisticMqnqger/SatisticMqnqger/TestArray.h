@@ -40,7 +40,9 @@ public:
 	void random_generate();
 	void test_print();
 	~TestArray();
-
+	int get_test_time(){return test_time;}
+	int get_range_size(){return range_size;}
+	int get_select_size(){return select_size;}
 	learn_sample getSample(int time, int n, int size) const;
 };
 

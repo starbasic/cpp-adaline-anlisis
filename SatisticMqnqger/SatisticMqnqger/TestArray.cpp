@@ -12,6 +12,40 @@ TestArray::TestArray(int t, int k, int n)
 	}
 }
 
+TestArray TestArray::getFromMFile()
+{
+	ifstream data_file("mega.dat",ios::in|ios::binary);
+	int count = 0;
+	char buf[110];
+	while(!data_file.eof())
+	{
+		data_file.getline(buf,110);
+		count++;
+	}
+	TestArray res(count-1,6,42);
+	data_file.close();
+	data_file.open("mega.dat",ios::in|ios::binary);
+	for (int i = 0; i < count-1; i++)
+	{
+		 for (int j = 0; j < res.range_size; j++)
+        {
+            res.array[i][j] = 0;
+        }
+        for (int j = 0; j< res.select_size; j++)
+		{
+				int next;
+				data_file>>next;
+				//cout<<next<<"  ";
+				res.array[i][next-1]= 1;
+		}
+	    }
+		
+
+	data_file.close();
+	return res;
+
+}
+
 TestArray::~TestArray()
 {
 	if(test_time)

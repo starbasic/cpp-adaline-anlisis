@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <ctime>
 
 using namespace std;
@@ -44,6 +45,7 @@ public:
 	int get_range_size(){return range_size;}
 	int get_select_size(){return select_size;}
 	learn_sample getSample(int time, int n, int size) const;
+	static TestArray getFromMFile(); 
 };
 
 

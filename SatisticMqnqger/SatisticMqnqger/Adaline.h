@@ -17,6 +17,7 @@ public:
 	void print_weights();
 	void learn_widrow(learn_sample);
 	void learn_statistic(TestArray);
+	void learn_statistic(TestArray, int);
 
 };
 

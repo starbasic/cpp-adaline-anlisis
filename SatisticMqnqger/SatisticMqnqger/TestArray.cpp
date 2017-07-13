@@ -14,7 +14,7 @@ TestArray::TestArray(int t, int k, int n)
 
 TestArray TestArray::getFromMFile()
 {
-	ifstream data_file("mega.dat",ios::in|ios::binary);
+	ifstream data_file("mega_test.dat",ios::in|ios::binary);
 	int count = 0;
 	char buf[110];
 	while(!data_file.eof())
@@ -24,7 +24,7 @@ TestArray TestArray::getFromMFile()
 	}
 	TestArray res(count-1,6,42);
 	data_file.close();
-	data_file.open("mega.dat",ios::in|ios::binary);
+	data_file.open("mega_test.dat",ios::in|ios::binary);
 	for (int i = 0; i < count-1; i++)
 	{
 		 for (int j = 0; j < res.range_size; j++)
@@ -43,6 +43,30 @@ TestArray TestArray::getFromMFile()
 
 	data_file.close();
 	return res;
+
+}
+
+
+TestArray TestArray::getBack(int dist)
+{
+	if(dist<this->test_time)
+	{
+		TestArray res(this->test_time-dist,this->select_size, this->range_size);
+		for (int i = 0; i < this->test_time-dist; i++)
+		{
+			for (int j = 0; j < this->range_size; j++)
+			{
+				res.array[i][j] = this->array[i][j];
+
+			}
+		}
+		return res;
+	}
+	else
+	{
+		cout<<"Test array is too small";
+		return *this;
+	}
 
 }
 

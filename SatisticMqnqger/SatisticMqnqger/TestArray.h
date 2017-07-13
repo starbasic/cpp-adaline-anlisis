@@ -45,7 +45,8 @@ public:
 	int get_range_size(){return range_size;}
 	int get_select_size(){return select_size;}
 	learn_sample getSample(int time, int n, int size) const;
-	static TestArray getFromMFile(); 
+	static TestArray getFromMFile();
+	TestArray getBack(int dist);
 };
 
 

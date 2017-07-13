@@ -44,6 +44,7 @@ public:
 	int get_test_time(){return test_time;}
 	int get_range_size(){return range_size;}
 	int get_select_size(){return select_size;}
+	int** getData(){return array;}
 	learn_sample getSample(int time, int n, int size) const;
 	static TestArray getFromMFile(const char* f_name);
 	TestArray getBack(int dist);

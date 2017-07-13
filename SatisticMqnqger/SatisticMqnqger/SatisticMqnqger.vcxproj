@@ -79,10 +79,12 @@
   <ItemGroup>
     <ClCompile Include="Adaline.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Stages.cpp" />
     <ClCompile Include="TestArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adaline.h" />
+    <ClInclude Include="Stages.h" />
     <ClInclude Include="TestArray.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

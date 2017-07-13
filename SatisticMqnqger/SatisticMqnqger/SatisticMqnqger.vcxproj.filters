@@ -24,12 +24,18 @@
     <ClCompile Include="Adaline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Stages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Adaline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

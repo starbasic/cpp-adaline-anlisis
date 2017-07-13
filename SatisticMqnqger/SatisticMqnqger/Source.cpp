@@ -1,24 +1,49 @@
 #include "TestArray.h"
 #include "Adaline.h"
+#include "Stages.h"
 void main()
 {
-	cout<<"Hello, statistics!"<<endl;
-	TestArray data = TestArray::getFromMFile("mega_test.dat");
-	//TestArray data(50, 4, 10);
-	//data.random_generate();
-	TestArray data90 = data.getBack(90);
-	data90.test_print();
-
-	////learn_sample ls;
-	//Adaline ada(15);
-	//cout<<endl<<"weights before learning"<<endl;
-	//ada.print_weights();
-	/*for (int i = 900; i < 989; i++)
+	cout<<"Input data:"<<endl;
+	TestArray data = TestArray::getFromMFile("mega.dat");
+	data.test_print();
+	cout<<endl;
+	
+	TestArray data_b = data.getBack(1);
+	double proba[42];
+	Stages network(7,14);
+	//network.print();
+	network.getStage(data_b);
+	//network.print();
+	network.getLinearProba(data_b,proba);
+	int names[42];
+	for (int i = 0; i < 42; i++)names[i]=i+1;
+	
+	/*for (int i = 0; i < 42;i++)
 	{
-		ada.learn_statistic(data,i);
-		cout<<endl<<"weights after learning"<<endl;
-		ada.print_weights();
 
-	}*/
+		cout<<names[i]<<'\t'<<proba[i]<<endl;
+	}
+	cout<<endl<<endl;
+*/
+
+	for (int i = 0; i < 42; i++)
+	{
+		int mini = i;
+		for(int j = i; j<42; j++)
+			if(proba[mini]<proba[j])mini=j;
+		double tmpd = proba[mini];
+		proba[mini] = proba[i];
+		proba[i] = tmpd;
+		int tmpi = names[mini];
+		names[mini] = names[i];
+		names[i] = tmpi;
+	}
+	
+
+	for (int i = 0; i < 10;i++)
+	{
+
+		cout<<names[i]<<'\t';//<<proba[i]<<endl;
+	}
 
 }

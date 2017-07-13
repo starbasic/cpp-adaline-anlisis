@@ -12,9 +12,9 @@ TestArray::TestArray(int t, int k, int n)
 	}
 }
 
-TestArray TestArray::getFromMFile()
+TestArray TestArray::getFromMFile(const char* f_name)
 {
-	ifstream data_file("mega_test.dat",ios::in|ios::binary);
+	ifstream data_file(f_name,ios::in|ios::binary);
 	int count = 0;
 	char buf[110];
 	while(!data_file.eof())
@@ -24,7 +24,7 @@ TestArray TestArray::getFromMFile()
 	}
 	TestArray res(count-1,6,42);
 	data_file.close();
-	data_file.open("mega_test.dat",ios::in|ios::binary);
+	data_file.open(f_name,ios::in|ios::binary);
 	for (int i = 0; i < count-1; i++)
 	{
 		 for (int j = 0; j < res.range_size; j++)

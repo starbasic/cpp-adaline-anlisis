@@ -3,7 +3,7 @@
 void main()
 {
 	cout<<"Hello, statistics!"<<endl;
-	TestArray data = TestArray::getFromMFile();
+	TestArray data = TestArray::getFromMFile("mega_test.dat");
 	//TestArray data(50, 4, 10);
 	//data.random_generate();
 	TestArray data90 = data.getBack(90);
